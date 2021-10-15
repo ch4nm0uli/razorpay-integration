@@ -15,28 +15,7 @@
 <body>
 
   <section class="hero is-link is-fullheight">
-    <div class="hero-body is-centered">
-      <div class="container">
-        <div class="columns is-centered is-vcentered">
 
-          <div class="column is-6">
-            <p class="title is-size-1">Just a book</p>
-            <p class="subtitle is-size-4">You can now read this book just for ₹500</p>
-
-            <button class="button is-link is-light is-medium" id="rzp-button1">Get the book</button>
-          </div>
-
-          <div class="column is-5">
-            <figure class="image">
-
-              <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1" style="border-radius: 10px" alt="">
-
-            </figure>
-          </div>
-
-        </div>
-      </div>
-    </div>
   </section>
 
   <script>
@@ -53,10 +32,9 @@
         }
       };
       var rzp1 = new Razorpay(options);
-      document.getElementById('rzp-button1').onclick = function(e) {
         rzp1.open();
         e.preventDefault();
-      }
+      
     })
   </script>
 </body>

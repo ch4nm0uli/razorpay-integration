@@ -11,6 +11,7 @@ const razorpay = new Razorpay({
 })
 
 var order_id;
+var amt;
 app.set('views','views');
 
 app.set('view engine','ejs');
@@ -19,12 +20,18 @@ app.use(express.urlencoded({extended:false}));
 
 
 app.get("/",(req,res) =>{
-  res.render('razorpay.ejs');
+  res.render('index.ejs');
 });
+
+
+app.post("/makeOrder",(req,res) => {
+  amt = req.body.amount
+  res.render('razorpay.ejs');
+})
 
 app.post("/order",(req,res) => {
   let options = {
-  amount: 500 * 100,  // amount in the smallest currency unit
+  amount: amt * 100,  // amount in the smallest currency unit
   currency: "INR",
 };
 
@@ -43,7 +50,7 @@ app.post("/is-order-complete",(req,res) => {
       res.send("Payment sucessful");
     }
     else{
-      res.redirect("/");
+      res.send("Payment Failed");
     }
   })
 
